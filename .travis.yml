@@ -1,3 +1,4 @@
-language: java
+language: ruby
 rvm:
- - openjdk8
+ - 2.2
+ - jruby
