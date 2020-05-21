@@ -31,15 +31,18 @@
 
     <mkdir dir="clasescompiladas"/>
 
-    <javac srcdir="./bin"
+    <javac destdir="classes"
            destdir="./clasescompiladas"
            debug="${debug}"
            optimize="${optimize}"
            deprecation="${deprecation}"
            target="${target.vm}">
+           includeantruntime="false"
+           fork="true"
       <classpath refid="classpath"/>
     </javac>
 
+    
 
   </target>
 
