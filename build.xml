@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+
+<project default="init" basedir=".">
+
+
+  <target name="init">
+    <tstamp/>
+    <property name="nombre" value="Definiciones para Tareas"/>
+
+    <echo message="----------- ${nombre}  --------"/>
+
+    <property name="debug"          value="on"/>
+    <property name="optimize"       value="off"/>
+    <property name="deprecation"    value="off"/>
+    <property name="build.compiler" value="classic"/>
+    <property name="target.vm"      value="1.3"/>
+
+    <path id="classpath">
+      <fileset dir="./lib">
+        <include name="*.jar"/>
+      </fileset>
+    </path>
+
+  </target>
+
+  
+  <target name="compilar" depends="init">
+
+    <echo message="------ Compilando Clases ------"/>
+
+    <mkdir dir="clasescompiladas"/>
+
+    <javac srcdir="./bin"
+           destdir="./clasescompiladas"
+           debug="${debug}"
+           optimize="${optimize}"
+           deprecation="${deprecation}"
+           target="${target.vm}">
+      <classpath refid="classpath"/>
+    </javac>
+
+
+  </target>
+
+
+
+   <target name="jar" depends="compilar">
+
+    <echo message="------ Generando Archivo JAR ------"/>
+
+    <jar jarfile="lasclases.jar" 
+            basedir="./clasescompiladas" 
+            includes="**"/>
+
+   </target>
+
+</project>
