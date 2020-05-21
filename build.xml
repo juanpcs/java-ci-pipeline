@@ -53,5 +53,10 @@
             includes="**"/>
 
    </target>
+  
+   <target name="test">
+    <mkdir dir="clasescompiladasprueba"/>
+     
+   </target>
 
 </project>
